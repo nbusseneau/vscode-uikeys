@@ -1,0 +1,102 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "uikeys",
+  "patterns": [
+    {
+      "include": "#commmand"
+    },
+    {
+      "include": "#comment"
+    }
+  ],
+  "repository": {
+    "commmand": {
+      "patterns": [
+        {
+          "match": "(bind|unbind)\\s+([^/\\s]+)([^/]+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "patterns": [{ "include": "#keyset" }] },
+            "3": { "patterns": [{ "include": "#action" }] }
+          }
+        },
+        {
+          "match": "(fakemeta)\\s+([^/\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "name": "constant.language.uikeys" }
+          }
+        },
+        {
+          "match": "(keyload)\\s+((?:(?!//).)+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "name": "variable.name.uikeys" }
+          }
+        },
+        {
+          "match": "(keysym)\\s+([^/\\s]+)\\s+([^/\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "name": "variable.name.uikeys" },
+            "3": { "name": "constant.language.uikeys" }
+          }
+        },
+        {
+          "match": "(unbindaction)\\s+([^/]+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "patterns": [{ "include": "#action" }] }
+          }
+        },
+        {
+          "match": "unbindall",
+          "name": "keyword.control.uikeys"
+        },
+        {
+          "match": "(unbindkeyset)\\s+([^/]+)",
+          "captures": {
+            "1": { "name": "keyword.control.uikeys" },
+            "2": { "patterns": [{ "include": "#keyset" }] }
+          }
+        },
+        {
+          "match": "(bind|fakemeta|keyload|keysym|unbind|unbindaction|unbindall|unbindkeyset)(?=\\s|/)",
+          "name": "keyword.control.uikeys"
+        }
+      ]
+    },
+    "keyset": {
+      "patterns": [
+        {
+          "match": "([^+,/]+)([+,]?)(.*)",
+          "captures": {
+            "1": { "name": "support.constant.uikeys" },
+            "2": { "name": "keyword.operator.uikeys" },
+            "3": { "patterns": [{ "include": "#keyset" }] }
+          }
+        }
+      ]
+    },
+    "action": {
+      "patterns": [
+        {
+          "match": "([^/\\s]+)(?:(\\s+)(.*))?",
+          "captures": {
+            "1": { "name": "entity.name.function.uikeys" },
+            "3": { "name": "variable.name.uikeys" }
+          }
+        }
+      ]
+    },
+    "comment": {
+      "patterns": [
+        {
+          "match": "//.*",
+          "name": "comment.line.uikeys"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.uikeys"
+}

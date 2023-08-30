@@ -1,0 +1,45 @@
+{
+  "name": "vscode-uikeys",
+  "displayName": "uikeys",
+  "description": "Language support for SpringRTS / Recoil's uikeys format in Visual Studio Code.",
+  "version": "1.0.0",
+  "publisher": "nbusseneau",
+  "license": "SEE LICENSE IN LICENSE",
+  "icon": "icon.png",
+  "homepage": "https://github.com/nbusseneau/vscode-uikeys",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nbusseneau/vscode-uikeys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nbusseneau/vscode-uikeys/issues"
+  },
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "uikeys",
+        "aliases": [
+          "uikeys"
+        ],
+        "filenamePatterns": [
+          "*keys*.txt"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "uikeys",
+        "scopeName": "source.uikeys",
+        "path": "./syntaxes/uikeys.tmLanguage.json"
+      }
+    ]
+  },
+  "main": "./src/extension.js"
+}
