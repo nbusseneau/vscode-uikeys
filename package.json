@@ -2,7 +2,7 @@
   "name": "vscode-uikeys",
   "displayName": "uikeys",
   "description": "Language support for SpringRTS / Recoil's uikeys format in Visual Studio Code.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "nbusseneau",
   "license": "SEE LICENSE IN LICENSE",
   "icon": "icon.png",
